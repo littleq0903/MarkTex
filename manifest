@@ -1,0 +1,20 @@
+#appname:HelloWorld
+#appid:com.example.helloworld
+#publisher:prattd
+#image:default_app_logo.png
+#url:http://example
+#guid:845e9c3c-c9ff-4ad4-afdf-9638092f044f
+#desc:No description provided
+#type:desktop
+runtime:1.2.0.RC4
+tiapp:1.2.0.RC4
+tifilesystem:1.2.0.RC4
+tiplatform:1.2.0.RC4
+tiui:1.2.0.RC4
+ticodec:1.2.0.RC4
+tidatabase:1.2.0.RC4
+timedia:1.2.0.RC4
+timonkey:1.2.0.RC4
+tinetwork:1.2.0.RC4
+tiprocess:1.2.0.RC4
+tiworker:1.2.0.RC4

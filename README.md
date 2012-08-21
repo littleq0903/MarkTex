@@ -1,4 +1,3 @@
-HelloWorld
-==========
+# HelloWorld Sample App
 
-Simplest TideSDK desktop app
+Simplest possible TideSDK desktop app demonstrating menus and hello world.
