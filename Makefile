@@ -1,6 +1,6 @@
 
 run:
-	tibuild.py -d . -r .
+	tibuild.py -d /tmp -r .
 
 build:
 	tibuild.py --appstore -t bundle -v -d ~/Desktop .
