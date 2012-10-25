@@ -66,7 +66,7 @@ $(function(){
             }
         )
     };
-    $("#load-btn").click();
+    $("#load-btn").click(function_load);
     file_menuitem.addItem('Load', function_load);
 
 
