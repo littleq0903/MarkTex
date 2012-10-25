@@ -11,12 +11,12 @@
 <!-- Window Definition - these values can be edited -->
 <window>
     <id>initial</id>
-    <title>MarkTex Preview Editor</title>
+    <title>MarkTex - Writely LaTeX</title>
     <url>app://index.html</url>
     <width>1014</width>
     <max-width>3000</max-width>
     <min-width>0</min-width>
-    <height>585</height>
+    <height>605</height>
     <max-height>3000</max-height>
     <min-height>0</min-height>
     <fullscreen>false</fullscreen>

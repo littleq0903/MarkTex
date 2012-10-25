@@ -7,7 +7,9 @@ body
 .wmd-panel
 {
 	min-width: 400px;
-    height: 390px;  /*Fixed panel*/
+    min-height: 390px;  /*Fixed panel*/
+    height: 70%;
+    max-height: 650px;
 }
 
 .wmd-button-bar 
@@ -18,8 +20,9 @@ body
 
 .wmd-input 
 { 
-	height: 385px;
-	max-height: 385px;
+    min-height: 385px;
+	height: 70%;
+	max-height: 650px;
 	width: 100%;
 	max-width:100%;
 	background-color: Gainsboro;
