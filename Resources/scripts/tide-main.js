@@ -1,17 +1,26 @@
 
+
+
+
 $(function(){
+    var menu = Ti.UI.createMenu(),
+    file_menuitem = Ti.UI.createMenuItem('File'),
+    clip_menuitem = Ti.UI.createMenuItem('Clipboard');
 
     $("#exit-btn").click(function(){
         Ti.App.exit();
     });
 
-    $("#clip-btn").click(function(){
+    var function_clip = function(){
         Ti.UI.Clipboard.setData('text/plain', $("#wmd-input").attr('value'));
         console.log("clipboard");
         console.log($("#wmd-input").attr('value'));
-    });
+    };
+    $("#clip-btn").click(function_clip);
+    clip_menuitem.addItem('Copy to clipboard', function_clip);
 
-    $("#preview-btn").click(function(){
+
+    var function_preview = function(){
         var printWindow = Ti.UI.createWindow({
             url: 'app://print.html',
             title: 'Export Previewer',
@@ -24,9 +33,11 @@ $(function(){
         });
 
         printWindow.open();
-    });
+    }
+    $("#preview-btn").click(function_preview);
+    file_menuitem.addItem('Preview', function_preview);
 
-    $("#load-btn").click(function(){
+    var function_load = function(){
         var mainWin = Ti.UI.getCurrentWindow();
         mainWin.openFileChooserDialog(
             function(arg){
@@ -46,9 +57,12 @@ $(function(){
                 types: 'md'
             }
         )
-    });
+    };
+    $("#load-btn").click();
+    file_menuitem.addItem('Load', function_load);
 
-    $("#save-btn").click(function(){
+
+    var function_savetofile = function(){
         var mainWin = Ti.UI.getCurrentWindow();
         mainWin.openSaveAsDialog(
             function(arg){
@@ -65,6 +79,14 @@ $(function(){
                 types: 'md'
             }
         );
-    });
+    };
+    $("#save-btn").click(function_savetofile);
+    file_menuitem.addItem('Save to...', function_savetofile);
+
+    menu.appendItem(file_menuitem);
+    menu.appendItem(clip_menuitem);
+    Ti.UI.setMenu(menu);
+
+
 });
 
