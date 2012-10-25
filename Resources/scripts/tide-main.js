@@ -22,7 +22,7 @@ $(function(){
 
     var function_preview = function(){
         var printWindow = Ti.UI.createWindow({
-            url: 'app://print.html',
+            url: 'app://preview.html',
             title: 'Export Previewer',
             modal: true
         });
