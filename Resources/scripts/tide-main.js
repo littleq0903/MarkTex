@@ -37,6 +37,14 @@ $(function(){
     $("#preview-btn").click(function_preview);
     file_menuitem.addItem('Preview', function_preview);
 
+    var function_print = function(){
+        window.frames["printer_iframe"].document.getElementById("print_content").innerHTML = $("#wmd-preview").html();
+        window.frames['printer_iframe'].print_document();
+    };
+    $("#print-btn").click(function_print);
+    file_menuitem.addItem('Print...', function_print);
+    
+
     var function_load = function(){
         var mainWin = Ti.UI.getCurrentWindow();
         mainWin.openFileChooserDialog(

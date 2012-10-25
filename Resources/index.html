@@ -65,6 +65,7 @@
             <div id="functions-nav" class="nav nav-pills well-small">
                 <li id="clip-btn"><a>Copy to clipboard</a></li>
                 <li id="preview-btn"><a>Preview</a></li>
+                <li id="print-btn"><a>Print</a></li>
                 <li id="load-btn"><a>Load File</a></li>
                 <li id="save-btn"><a>Save File</a></li>
             </div>
@@ -78,6 +79,11 @@
 
         <!-- end of .container -->
         </div>
+
+        <iframe src="print.html"
+            frameborder="0"
+            id="printer_iframe"
+            style="position:absolute; left:0; top:-1000px"></iframe>
 
         <div id="MathOutput"></div>
 
@@ -141,40 +147,43 @@
         window.UpdateMath = function() {
             MathJax.Hub.Queue(["Typeset", MathJax.Hub, "wmd-preview"]);
         };
-    </script>
-    <script type="text/javascript">
         // Globals
         RealtimeEditor = "";
         $(function(){
-            var converter2 = new Markdown.Converter();
 
-            converter2.hooks.chain("preConversion", function (text) {
-             return text.replace(/\b(a\w*)/gi, "$1");
-             });
+            // Building Editor
+            (function(){
+                var converter2 = new Markdown.Converter();
 
-            converter2.hooks.chain("postConversion", function (text) {
-             if (window.typingClock != null) {
-                clearTimeout(window.typingClock);
-             }
-             window.typingClock = setTimeout(function(){
-                 window.UpdateMath();
-                 }, 5);
-             return text;
-             });
+                converter2.hooks.chain("preConversion", function (text) {
+                     return text.replace(/\b(a\w*)/gi, "$1");
+                 });
 
-            converter2.hooks.chain("plainLinkText", function (url) {
-             return url.replace(/^https?:\/\//, "");
-             });
+                converter2.hooks.chain("postConversion", function (text) {
+                     if (window.typingClock != null) {
+                        clearTimeout(window.typingClock);
+                     }
+                     window.typingClock = setTimeout(function(){
+                         window.UpdateMath();
+                     }, 5);
+                     return text;
+                 });
 
-            var help = function () { alert("Do you need help?"); }
-            var options = {
-            strings: { quoteexample: "whatever you're quoting, put it right here" }
-            };
-            var editor2 = new Markdown.Editor(converter2, "", options);
-            RealtimeEditor = editor2;
+                converter2.hooks.chain("plainLinkText", function (url) {
+                     return url.replace(/^https?:\/\//, "");
+                 });
 
-            editor2.run();
+                var help = function () { alert("Do you need help?"); }
+                var options = {
+                    strings: { quoteexample: "whatever you're quoting, put it right here" }
+                };
+                var editor2 = new Markdown.Editor(converter2, "", options);
+                RealtimeEditor = editor2;
 
+                editor2.run();
+             })();
+
+            // insert Readme file
             (function(){
                 var readme_file = Ti.Filesystem.getFile(Ti.Filesystem.getResourcesDirectory(), "/README.md");    
                 var readme_content = readme_file.open(Ti.Filesystem.MODE_READ).read();
