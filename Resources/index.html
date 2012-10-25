@@ -180,7 +180,9 @@
                 var converter2 = new Markdown.Converter();
 
                 converter2.hooks.chain("preConversion", function (text) {
-                     return text.replace(/\b(a\w*)/gi, "$1");
+                     text = text.replace(/<(.*)@(.*)>/, "<a href='mailto:$1@$2'>$1@$2</a>");
+                     text = text.replace(/\b(a\w*)/gi, "$1");
+                     return text;
                  });
 
                 converter2.hooks.chain("postConversion", function (text) {
@@ -194,7 +196,8 @@
                  });
 
                 converter2.hooks.chain("plainLinkText", function (url) {
-                     return url.replace(/^https?:\/\//, "");
+                    url = url.replace(/^https?:\/\//, "");
+                    return url;
                  });
 
                 var help = function () { alert("Do you need help?"); }
