@@ -27,6 +27,7 @@ body
 	max-width:100%;
 	background-color: Gainsboro;
 	border: 1px solid Gray;
+    font-family: Monaco, Courier New, Courier;
 }
 
 .wmd-preview 

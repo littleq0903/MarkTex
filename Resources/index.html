@@ -9,9 +9,6 @@
         <title>MarkTex - Writely LaTeX</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
-
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-
         
         <link rel="stylesheet" href="styles/main.css">
         <style type="text/css">
@@ -21,10 +18,32 @@
             .container {
                 width: 100%;
             }
+            .brand {
+                color: white;
+                font-family: "Times New Roman";
+                font-style: italic;
+                user-select: none;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -o-user-select: none;
+                -ms-user-select: none;
+            }
             .nav-pills > li > a:hover {
                 background-color: #08C;
                 color: white;
                 text-shadow: none;
+            }
+            .footer {
+                position: fixed;
+                width: 100%;
+                height: 40px;
+                bottom: 0;
+                left: 0;
+                background-color: black;
+                color: #FFF;
+            }
+            .footer p {
+                margin-top: 10px;
             }
         </style>
         <link rel="stylesheet" href="lib/pagedown/theme.css" />
@@ -38,7 +57,7 @@
     <div class="container" style="margin-top: 50px">
             <div class="navbar navbar-inverse navbar-fixed-top">
                 <div class="navbar-inner">
-                    <a class="brand" style="margin-left:0">MarkTex</a>
+                    <a class="brand" style="margin-left:0">Mark$\TeX$</a>
 
                     <ul class="nav pull-right">
                         <li class="vertical-divider"></li>
@@ -75,7 +94,7 @@
                 <li id="save-btn"><a>Save File</a></li>
             </div>
 
-            <div>
+            <div class="footer">
                 <center>
                     <p>© SocialStudy - LittleQ x Snowman, 2012</p>
                 </center>
